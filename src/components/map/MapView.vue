@@ -36,7 +36,7 @@ export default {
       ZnvMap.start('map-container', {
         zoom: 1,
         minZoom: 1,
-        maxZoom: 10,
+        maxZoom: 20,
         center: [120.422167, 36.117018]
       }).then(() => {
         // 设置地图中心点和轮廓

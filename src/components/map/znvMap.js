@@ -14,6 +14,9 @@ ZnvMap.start = function (mapId, opts) {
   return new ZMap.Map(mapId, opts).then(res => {
     map = res
     markerClusterLayer = new ZMap.MarkerClusterer(map, [], { minClusterSize: 8 })
+    map._on('click', (e) => {
+      debugger
+    })
   })
 }
 

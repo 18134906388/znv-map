@@ -1,4 +1,4 @@
-# web_population_management_platform
+# znv-map
 
 ## Project setup
 ```
