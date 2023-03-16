@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script src="./config/sysConfig.js"></script>
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <!-- ol -->
+  <!-- <link href="./map/ol/ol.css" rel="stylesheet" />
+  <script src="./map/ol/ol.js"></script> -->
+  <!-- arcgis -->
+  <script>
+    // helpful for understanding dojoConfig.packages vs. dojoConfig.paths:
+    // http://www.sitepen.com/blog/2013/06/20/dojo-faq-what-is-the-difference-packages-vs-paths-vs-aliases/
+    var dojoConfig = { 
+      paths: {
+        extras: location.pathname.replace(/\/[^/]+$/, "") + "map/arcgis/extras"
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="https://js.arcgis.com/3.41/esri/css/esri.css">
+  <script src="https://js.arcgis.com/3.41/"></script>
+  <!-- gaode -->
+  <!-- <script src = 'https://webapi.amap.com/maps?v=1.4.15&key=10aab90969ea4cab508844d98d4fcf29&plugin=AMap.MarkerClusterer'></script> -->
+ <title>znv-map</title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but vue-test doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
