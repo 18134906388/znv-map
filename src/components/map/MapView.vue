@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ZnvMap from '@/components/map/znvMap-arcgis'
+import ZnvMap from '@/components/map/znvMap'
 import { getIconByName } from './mapIcon'
 import axios from '@/utils/request'
 import MapFilter from './MapFilter'
@@ -34,7 +34,7 @@ export default {
     initMap() {
       // 初始化地图
       ZnvMap.start('map-container', {
-        zoom: 1,
+        zoom: 10,
         minZoom: 1,
         maxZoom: 20,
         center: [120.422167, 36.117018]
@@ -89,6 +89,9 @@ export default {
           ZnvMap.loadPolygonLayer('轮廓_' + e.id, e.outlineGps, option)
         })
       })
+    },
+    showWindowInfoDetail(data) {
+      console.log(data)
     }
   }
 }

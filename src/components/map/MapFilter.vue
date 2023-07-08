@@ -9,7 +9,7 @@
 
 <script>
 import { mapIcon } from './mapIcon'
-import ZnvMap from '@/components/map/znvMap-arcgis'
+import ZnvMap from '@/components/map/znvMap'
 export default {
   data() {
     return {

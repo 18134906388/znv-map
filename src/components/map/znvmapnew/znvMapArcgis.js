@@ -149,7 +149,6 @@ class Marker {
     let graphic = new arcgis.Graphic(point, symbol, opts)
     this.Marker = graphic
     this.opts = opts
-    debugger
     this.clustererInfo = {
       id: opts.id,
       x: point.x,
@@ -174,6 +173,9 @@ class Marker {
 
   _show() {
     this.Marker.show()
+  }
+
+  _on(event, handler) {
   }
 }
 

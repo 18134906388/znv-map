@@ -125,6 +125,9 @@ class Marker {
   _addToMap(map) {
     this.Feature.setMap(map)
   }
+
+  _on(event, handler) {
+  }
 }
 
 // eslint-disable-next-line no-unused-vars

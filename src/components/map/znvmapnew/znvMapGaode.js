@@ -1,4 +1,7 @@
 const AMap = window.AMap
+let eventMap = {
+  graphicsClick: null
+}
 
 class Map {
   constructor(mapId, opts) {
@@ -15,13 +18,16 @@ class Map {
     let map = new AMap.Map(mapId, {
       zoom: opts.zoom, // 级别
       center: opts.center, // 中心点坐标
-      viewMode: '2D' // 使用3D视图
+      viewMode: '2D', // 使用3D视图
+      mapStyle: 'amap://styles/9b3f6102bf569578d433f2257514db9c'
     })
     this.map = map
     const promise = new Promise((resolve, reject) => {
       resolve(this)
     })
     return promise
+  }
+  _on(event, handler) {
   }
 }
 
@@ -50,6 +56,10 @@ class Marker {
 
   _addToMap(map) {
     map.map.add(this.Marker)
+  }
+
+  _on(event, handler) {
+    this.Marker.on(event, handler)
   }
 }
 

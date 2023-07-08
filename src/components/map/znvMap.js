@@ -1,6 +1,6 @@
 import coordtransform from './coordtransform'
 import ZMap from './znvmapnew/znvMapArcgis'
-// import store from '../../store'
+import store from '../../store'
 
 let ZnvMap = {}
 let map // 地图对象
@@ -15,7 +15,6 @@ ZnvMap.start = function (mapId, opts) {
     map = res
     markerClusterLayer = new ZMap.MarkerClusterer(map, [], { minClusterSize: 8 })
     map._on('click', (e) => {
-      debugger
     })
   })
 }
@@ -39,12 +38,25 @@ ZnvMap.loadPointLayer = function (points, opts) {
     e.position.lng = lnglat[0]
     e.position.lat = lnglat[1]
     let marker = new ZMap.Marker(map, e)
+    marker._on('click',(v) => {
+      ZnvMap.clickEvent(marker.opts)
+    })
     layerMarks[e.id] = marker
     if (!defParams.isHidden) {
       markers.push(marker)
     }
   })
   ZnvMap.showMarkers(markers)
+}
+
+ZnvMap.clickEvent = function (marker) {
+  ZnvMap.showPointDetail(marker)
+}
+ZnvMap.showPointDetail = function (marker) {
+  store.dispatch('map/setWindowInfoDetail', {
+    data: marker.extData || marker.info,
+    random: new Date().getTime()
+  })
 }
 
 ZnvMap.showMarkers = function (markers) {
